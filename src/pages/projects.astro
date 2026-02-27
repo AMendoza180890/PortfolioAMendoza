@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
+import Link from "@/components/ui/link.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
@@ -19,9 +20,20 @@ publishedBlogEntries.sort(function (a, b) {
 <Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">My Projects</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        <p class="text-lg mt-4 text-black">
+          On this page, you can see some of my projects and the work I have done for different organizations and clients.
+        </p>
+
+        <p class="text-lg mt-4 text-black">
+          I build complete solutions from start to finish: planning, design, development, testing, and deployment. My projects include websites, web apps, and APIs. I work with technologies like WordPress, PHP, JavaScript, Astro, React, MySQL, SQL Server, Git, and Docker.
+          </p>
+
+        <p class="text-lg mt-4 text-black pb-10">
+          Each project shows my focus on clean design, good performance, and easy maintenance. If you want to ask about a project or talk about a new idea, feel free to contact me.
+        </p>
+        <Link href="/contact" style="primary">Contact</Link>
       </Fragment>
     </Sectionhead>
     <main class="mt-16">

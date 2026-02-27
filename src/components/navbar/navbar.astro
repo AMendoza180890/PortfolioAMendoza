@@ -1,41 +1,37 @@
 ---
 import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
-import Dropdown from "./dropdown.astro";
+// import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import {Icon} from "astro-icon/components";
 
 const menuitems = [
   {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
+    title: "home",
+    path: "/",
   },
   {
-    title: "Pricing",
-    path: "/pricing",
+    title: "Resume",
+    path: "/resume",
   },
   {
-    title: "About",
-    path: "/about",
-  },
-  {
-    title: "Blog",
-    path: "/blog",
+    title: "Projects",
+    path: "/projects",
   },
   {
     title: "Contact",
     path: "/contact",
   },
-  {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
-  },
+  // {
+  //   title: "Portfolio",
+  //   path: "#",
+  //   children: [
+  //     { title: "Action", path: "/" },
+  //     { title: "Another action", path: "#" },
+  //     { title: "Dropdown Submenu", path: "#" },
+  //     { title: "404 Page", path: "/404" },
+  //   ],
+  // },
 ];
 ---
 
@@ -44,8 +40,8 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
+          ><span class="font-bold text-slate-800">Allan</span><span
+            class="text-slate-500">Mendoza</span
           >
         </a>
         <div class="block lg:hidden">
@@ -57,25 +53,20 @@ const menuitems = [
           {
             menuitems.map((item, index) => (
               <>
-                {item.children && (
+                {/* {item.children && (
                   <Dropdown
                     title={item.title}
                     children={item.children}
                     lastItem={index === menuitems.length - 1}
                   />
-                )}
+                )} */}
 
-                {!item.children && (
+                {(
                   <li>
                     <a
                       href={item.path}
                       class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
                       <span> {item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
-                        </span>
-                      )}
                     </a>
                   </li>
                 )}
@@ -84,15 +75,23 @@ const menuitems = [
           }
         </ul>
         <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="#" style="muted" block size="md">Log in</Link>
-          <Link href="#" size="md" block>Sign up</Link>
+          <Link href="https://www.linkedin.com/in/amendoza1890/ " style="muted" block size="md">
+             <Icon class="text-black w-4 h-4" name="bx:bxl-linkedin" />
+          </Link>
+          <Link href="https://github.com/AMendoza180890" size="md" block>
+            <Icon class="text-white w-5 h-5" name="bx:bxl-github" />
+          </Link>
         </div>
       </MenuItems>
     </Astronav>
     <div>
       <div class="hidden lg:flex items-center gap-4">
-        <a href="#">Log in</a>
-        <Link href="#" size="md">Sign up</Link>
+        <a href="https://www.linkedin.com/in/amendoza1890/ ">
+             <Icon class="text-black w-4 h-4" name="bx:bxl-linkedin" />
+        </a>
+        <Link href="https://github.com/AMendoza180890" size="md">
+          <Icon class="text-white w-5 h-5" name="bx:bxl-github" />
+        </Link>
       </div>
     </div>
   </header>
